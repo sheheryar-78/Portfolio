@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Sheheryar | Professional Portfolio</title>
+  <!-- Google Fonts & simple reset -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* header / navigation */
+    .navbar {
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(4px);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03), 0 2px 6px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 1rem 0;
+    }
+
+    .nav-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.6rem;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #1e2b3c, #2c5f7a);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #1e293b;
+      transition: color 0.2s;
+      font-size: 1rem;
+    }
+
+    .nav-links a:hover {
+      color: #2c5f7a;
+    }
+
+    /* buttons & general */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #1e2b3c;
+      color: white;
+      padding: 0.7rem 1.6rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.25s;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid #2c5f7a;
+      color: #2c5f7a;
+    }
+
+    .btn-outline:hover {
+      background: #2c5f7a;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #0f2c3a;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 2.5rem;
+      position: relative;
+      display: inline-block;
+    }
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60%;
+      height: 3px;
+      background: #2c5f7a;
+      border-radius: 3px;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 4rem 0 3rem 0;
+    }
+    .hero-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .hero-content {
+      flex: 1.2;
+    }
+    .hero-badge {
+      background: #e2f0f5;
+      color: #1e4a62;
+      display: inline-block;
+      padding: 0.25rem 1rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+    }
+    .hero-content h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+    .highlight {
+      color: #2c5f7a;
+      border-bottom: 3px solid #2c5f7a40;
+    }
+    .hero-desc {
+      font-size: 1.2rem;
+      color: #334155;
+      max-width: 90%;
+      margin-bottom: 2rem;
+    }
+    .contact-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .hero-info {
+      flex: 0.8;
+      background: white;
+      border-radius: 2rem;
+      padding: 2rem;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.08);
+      border: 1px solid #e2e8f0;
+    }
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .info-icon {
+      width: 44px;
+      height: 44px;
+      background: #eef2ff;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2c5f7a;
+      font-size: 1.3rem;
+    }
+    .info-text {
+      font-weight: 500;
+    }
+    .info-text a {
+      text-decoration: none;
+      color: #1e293b;
+      transition: color 0.2s;
+    }
+    .info-text a:hover {
+      color: #2c5f7a;
+    }
+    .info-label {
+      font-size: 0.75rem;
+      color: #5b6e8c;
+      letter-spacing: 0.3px;
+    }
+
+    /* about */
+    .about-text {
+      background: white;
+      border-radius: 1.8rem;
+      padding: 2rem;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+      border: 1px solid #eef2f6;
+      font-size: 1.05rem;
+      color: #1e2a3a;
+    }
+
+    /* projects / work */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+    .project-card {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 1.8rem;
+      transition: all 0.25s ease;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+      border: 1px solid #e9edf2;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.08);
+      border-color: #cbdde6;
+    }
+    .project-icon {
+      font-size: 2.2rem;
+      color: #2c5f7a;
+      margin-bottom: 1rem;
+    }
+    .project-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+      font-weight: 700;
+    }
+    .project-card p {
+      color: #475569;
+      margin-bottom: 1.2rem;
+    }
+    .tech-tag {
+      display: inline-block;
+      background: #eef2ff;
+      padding: 0.2rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #1e4a62;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* skills */
+    .skills-wrapper {
+      background: white;
+      border-radius: 2rem;
+      padding: 2rem;
+      border: 1px solid #eef2f6;
+    }
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .skill-badge {
+      background: #f1f5f9;
+      padding: 0.6rem 1.3rem;
+      border-radius: 50px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: 0.2s;
+    }
+    .skill-badge i {
+      margin-right: 0.5rem;
+      color: #2c5f7a;
+    }
+
+    /* contact & footer */
+    .contact-section {
+      background: white;
+      border-radius: 2rem;
+      padding: 2.5rem;
+      text-align: center;
+      box-shadow: 0 12px 28px -8px rgba(0,0,0,0.04);
+      border: 1px solid #eef2f6;
+    }
+    .contact-flex {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin: 2rem 0 1rem;
+    }
+    .contact-card {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: #f8fafc;
+      padding: 0.8rem 1.5rem;
+      border-radius: 60px;
+      transition: all 0.2s;
+      border: 1px solid #e2e8f0;
+    }
+    .contact-card i {
+      font-size: 1.4rem;
+      color: #2c5f7a;
+    }
+    .contact-card a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #0f172a;
+    }
+    .footer {
+      text-align: center;
+      padding: 2rem 0 3rem;
+      border-top: 1px solid #e2e8f0;
+      margin-top: 1rem;
+      color: #5b6e8c;
+    }
+
+    @media (max-width: 800px) {
+      .hero-grid {
+        flex-direction: column;
+      }
+      .hero-content h1 {
+        font-size: 2.4rem;
+      }
+      .container {
+        padding: 0 1.5rem;
+      }
+      .nav-flex {
+        flex-direction: column;
+      }
+      .nav-links {
+        gap: 1.5rem;
+      }
+      .section-title {
+        font-size: 1.8rem;
+      }
+    }
+    @media (max-width: 480px) {
+      .contact-card {
+        width: 100%;
+        justify-content: center;
+      }
+      .contact-flex {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container nav-flex">
+    <div class="logo">Sheheryar.dev</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn btn-primary" style="background:#2c5f7a;"><i class="fas fa-paper-plane"></i> Hire me</a>
+  </div>
+</nav>
+
+<main>
+  <!-- Hero section -->
+  <section id="home" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge"><i class="fas fa-code"></i> Software Engineer & Creator</div>
+        <h1>Crafting digital <span class="highlight">experiences</span> that matter</h1>
+        <p class="hero-desc">Hi, I'm Muhammad Sheheryar — passionate developer building robust web solutions and turning ideas into high-performance applications.</p>
+        <div class="contact-buttons">
+          <a href="https://www.linkedin.com/in/muhammadsheheryar21" target="_blank" class="btn btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          <a href="mailto:muhammadsheheryar78@gmail.com" class="btn btn-outline"><i class="fas fa-envelope"></i> Email</a>
+          <a href="tel:+923054511814" class="btn btn-outline"><i class="fas fa-phone-alt"></i> Call</a>
+        </div>
+      </div>
+      <div class="hero-info">
+        <div class="info-item">
+          <div class="info-icon"><i class="fas fa-user-graduate"></i></div>
+          <div class="info-text"><span class="info-label">Full name</span><br/>Muhammad Sheheryar</div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="info-text"><span class="info-label">Based in</span><br/>Pakistan | Remote ready</div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon"><i class="fas fa-envelope"></i></div>
+          <div class="info-text"><span class="info-label">Email direct</span><br/><a href="mailto:muhammadsheheryar78@gmail.com">muhammadsheheryar78@gmail.com</a></div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon"><i class="fas fa-phone"></i></div>
+          <div class="info-text"><span class="info-label">Contact</span><br/><a href="tel:+923054511814">+92 305 4511814</a></div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon"><i class="fab fa-linkedin"></i></div>
+          <div class="info-text"><span class="info-label">Professional network</span><br/><a href="https://www.linkedin.com/in/muhammadsheheryar21" target="_blank">linkedin.com/in/muhammadsheheryar21</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About me</h2>
+      <div class="about-text">
+        <p style="margin-bottom: 1rem;">I'm Muhammad Sheheryar — a passionate developer with a strong focus on crafting clean, scalable, and user-centered digital products. Over the years, I've collaborated with cross-functional teams to build modern web apps, dashboards, and interactive platforms. My approach blends creativity with engineering precision.</p>
+        <p>I constantly explore new technologies and believe in writing code that solves real-world problems. Outside development, I enjoy contributing to open source and mentoring upcoming developers. Let's build something impactful together.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects / Featured work -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Featured projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>Analytics Dashboard</h3>
+          <p>Interactive dashboard with real-time metrics, custom widgets, and data visualization using React and Chart.js.</p>
+          <div><span class="tech-tag">React</span><span class="tech-tag">Node.js</span><span class="tech-tag">Tailwind</span></div>
+        </div>
+        <div class="project-card">
+          <div class="project-icon"><i class="fas fa-store"></i></div>
+          <h3>E‑commerce Platform</h3>
+          <p>Full-stack online store with cart, payment integration, and admin panel. Built with MERN stack & Redux.</p>
+          <div><span class="tech-tag">MongoDB</span><span class="tech-tag">Express</span><span class="tech-tag">JWT</span></div>
+        </div>
+        <div class="project-card">
+          <div class="project-icon"><i class="fas fa-mobile-alt"></i></div>
+          <h3>Portfolio Generator</h3>
+          <p>Dynamic portfolio web app that lets creatives showcase their work with drag-and-drop customization.</p>
+          <div><span class="tech-tag">Vue.js</span><span class="tech-tag">Firebase</span><span class="tech-tag">CSS Grid</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills & expertise -->
+  <section style="padding-top: 0;">
+    <div class="container">
+      <h2 class="section-title">Tech stack & skills</h2>
+      <div class="skills-wrapper">
+        <div class="skills-grid">
+          <span class="skill-badge"><i class="fab fa-react"></i> React.js</span>
+          <span class="skill-badge"><i class="fab fa-js"></i> JavaScript (ES6+)</span>
+          <span class="skill-badge"><i class="fab fa-node"></i> Node.js</span>
+          <span class="skill-badge"><i class="fas fa-database"></i> MongoDB / SQL</span>
+          <span class="skill-badge"><i class="fab fa-python"></i> Python</span>
+          <span class="skill-badge"><i class="fab fa-html5"></i> HTML5/CSS3</span>
+          <span class="skill-badge"><i class="fab fa-tailwind"></i> Tailwind / Bootstrap</span>
+          <span class="skill-badge"><i class="fab fa-git-alt"></i> Git & GitHub</span>
+          <span class="skill-badge"><i class="fas fa-cloud"></i> REST APIs</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & direct links -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Let's connect</h2>
+      <div class="contact-section">
+        <p style="font-size: 1.2rem; margin-bottom: 0.5rem;">📬 Have a project or just want to say hi?</p>
+        <p style="margin-bottom: 1.8rem; color: #2d3e50;">I'm always open to discussing new opportunities, collaborations, or tech talks.</p>
+        <div class="contact-flex">
+          <div class="contact-card">
+            <i class="fas fa-envelope fa-fw"></i>
+            <a href="mailto:muhammadsheheryar78@gmail.com">muhammadsheheryar78@gmail.com</a>
+          </div>
+          <div class="contact-card">
+            <i class="fas fa-phone-alt fa-fw"></i>
+            <a href="tel:+923054511814">+92 305 4511814</a>
+          </div>
+          <div class="contact-card">
+            <i class="fab fa-linkedin fa-fw"></i>
+            <a href="https://www.linkedin.com/in/muhammadsheheryar21" target="_blank">linkedin.com/in/muhammadsheheryar21</a>
+          </div>
+        </div>
+        <div style="margin-top: 2rem;">
+          <a href="mailto:muhammadsheheryar78@gmail.com?subject=Collaboration%20Inquiry" class="btn btn-primary" style="background:#1e2b3c;"><i class="fas fa-comment-dots"></i> Send a message</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <p>© 2025 Muhammad Sheheryar — Designed with <i class="fas fa-heart" style="color:#2c5f7a;"></i> for modern web.</p>
+    <p style="font-size: 0.85rem; margin-top: 0.5rem;">📧 muhammadsheheryar78@gmail.com | 📞 +92 305 4511814</p>
+  </div>
+</footer>
+
+<!-- smooth scroll behavior for anchor links -->
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if(targetId === "#" || targetId === "") return;
+      const targetElement = document.querySelector(targetId);
+      if(targetElement) {
+        e.preventDefault();
+        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+  // small console greet
+  console.log("Professional portfolio — Muhammad Sheheryar | ready for opportunities");
+</script>
+</body>
+</html>
