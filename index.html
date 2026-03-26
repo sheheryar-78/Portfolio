@@ -11,39 +11,46 @@
 
     body {
       font-family: 'Inter', system_ui, sans-serif;
-      background: #0a0a0a;
+      background: #0a0a0f;
       color: #e0e0e0;
     }
 
+    /* Softer Neon Glow */
     .neon-text {
       text-shadow:
-        0 0 5px #67e8f9,
-        0 0 10px #67e8f9,
-        0 0 20px #22d3ee,
-        0 0 40px #06b6d4;
-      animation: neon-flicker 1.5s infinite alternate;
+        0 0 8px rgba(103, 232, 249, 0.6),
+        0 0 16px rgba(34, 211, 238, 0.4);
+      transition: text-shadow 0.4s ease;
     }
 
-    @keyframes neon-flicker {
-      0% { text-shadow: 0 0 5px #67e8f9, 0 0 10px #67e8f9, 0 0 20px #22d3ee; }
-      100% { text-shadow: 0 0 10px #67e8f9, 0 0 20px #22d3ee, 0 0 40px #06b6d4, 0 0 60px #06b6d4; }
+    .neon-text:hover {
+      text-shadow:
+        0 0 12px rgba(103, 232, 249, 0.8),
+        0 0 25px rgba(34, 211, 238, 0.6);
     }
 
     .neon-border {
-      box-shadow: 0 0 10px #22d3ee, 0 0 20px #22d3ee;
+      box-shadow: 0 0 12px rgba(34, 211, 238, 0.3),
+                  0 0 25px rgba(34, 211, 238, 0.15);
       transition: all 0.4s ease;
     }
 
     .neon-border:hover {
-      box-shadow: 0 0 20px #67e8f9, 0 0 40px #22d3ee, 0 0 60px #06b6d4;
-      transform: translateY(-4px);
+      box-shadow: 0 0 20px rgba(103, 232, 249, 0.5),
+                  0 0 35px rgba(34, 211, 238, 0.3);
+      transform: translateY(-3px);
     }
 
     .skill-bar {
-      height: 10px;
+      height: 8px;
       background: linear-gradient(90deg, #22d3ee, #a855f7);
-      box-shadow: 0 0 15px #22d3ee;
-      animation: skill-fill 2s ease-in-out forwards;
+      box-shadow: 0 0 12px rgba(34, 211, 238, 0.6);
+      animation: skill-fill 1.8s ease-out forwards;
+    }
+
+    @keyframes skill-fill {
+      from { width: 0%; }
+      to { width: var(--width); }
     }
 
     .section-title {
@@ -54,184 +61,238 @@
     .section-title::after {
       content: '';
       position: absolute;
-      bottom: -8px;
+      bottom: -10px;
       left: 0;
-      width: 60%;
-      height: 3px;
+      width: 50%;
+      height: 2px;
       background: linear-gradient(to right, #22d3ee, transparent);
+    }
+
+    .glass {
+      background: rgba(15, 15, 25, 0.7);
+      backdrop-filter: blur(12px);
     }
   </style>
 </head>
 <body class="min-h-screen overflow-x-hidden">
 
   <!-- Navbar -->
-  <nav class="fixed top-0 w-full bg-black/90 backdrop-blur-md border-b border-cyan-500/30 z-50">
-    <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
-      <h1 class="text-2xl font-black tracking-widest neon-text text-cyan-400">SHEHERYAR</h1>
-      <div class="flex gap-8 text-sm font-medium">
-        <a href="#home" class="hover:text-cyan-400 transition-colors">Home</a>
-        <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
-        <a href="#skills" class="hover:text-cyan-400 transition-colors">Skills</a>
-        <a href="#projects" class="hover:text-cyan-400 transition-colors">Projects</a>
-        <a href="#contact" class="hover:text-cyan-400 transition-colors">Contact</a>
+  <nav class="fixed top-0 w-full bg-black/80 backdrop-blur-lg border-b border-cyan-500/20 z-50">
+    <div class="max-w-6xl mx-auto px-8 py-6 flex justify-between items-center">
+      <h1 class="text-2xl font-bold tracking-tight neon-text text-cyan-300">Muhammad Sheheryar</h1>
+      <div class="flex gap-9 text-sm font-medium">
+        <a href="#home" class="hover:text-cyan-300 transition-colors">Home</a>
+        <a href="#about" class="hover:text-cyan-300 transition-colors">About</a>
+        <a href="#skills" class="hover:text-cyan-300 transition-colors">Skills</a>
+        <a href="#projects" class="hover:text-cyan-300 transition-colors">Projects</a>
+        <a href="#contact" class="hover:text-cyan-300 transition-colors">Contact</a>
       </div>
     </div>
   </nav>
 
   <!-- Hero -->
   <section id="home" class="min-h-screen flex items-center justify-center relative">
-    <div class="absolute inset-0 bg-[radial-gradient(circle,#22d3ee_1px,transparent_1px)] bg-[length:40px_40px] opacity-10"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,#22d3ee_0.8px,transparent_1px)] bg-[length:50px_50px] opacity-5"></div>
 
-    <div class="text-center z-10 px-6">
-      <h2 class="text-7xl md:text-8xl font-black tracking-tighter neon-text mb-4">MUHAMMAD</h2>
-      <h2 class="text-7xl md:text-8xl font-black tracking-tighter neon-text text-cyan-300">SHEHERYAR</h2>
-      <p class="text-3xl mt-6 text-cyan-300">Full Stack Developer</p>
-      <p class="max-w-lg mx-auto mt-8 text-gray-400 text-lg">
-        Crafting beautiful, high-performance web experiences with modern technologies and neon aesthetics.
+    <div class="text-center z-10 px-6 max-w-4xl">
+      <h2 class="text-6xl md:text-7xl font-bold tracking-tighter text-white mb-3">
+        Muhammad Sheheryar
+      </h2>
+      <p class="text-2xl md:text-3xl text-cyan-300 font-light mb-8">Full Stack Developer</p>
+
+      <p class="max-w-lg mx-auto text-lg text-gray-400 leading-relaxed">
+        I build elegant, high-performance web applications with modern technologies
+        and thoughtful design.
       </p>
 
-      <div class="flex flex-wrap gap-6 justify-center mt-12">
+      <div class="flex flex-wrap gap-6 justify-center mt-14">
         <a href="https://www.linkedin.com/in/muhammadsheheryar21"
            target="_blank"
-           class="neon-border px-10 py-5 rounded-2xl flex items-center gap-3 text-lg hover:bg-cyan-950/50">
-          <i class="fab fa-linkedin"></i> LinkedIn
+           class="neon-border glass px-10 py-5 rounded-2xl flex items-center gap-3 text-lg hover:text-cyan-200">
+          <i class="fab fa-linkedin text-xl"></i>
+          Connect on LinkedIn
         </a>
         <a href="#projects"
-           class="neon-border px-10 py-5 rounded-2xl flex items-center gap-3 text-lg hover:bg-purple-950/50">
-          View My Work <i class="fas fa-arrow-right"></i>
+           class="neon-border glass px-10 py-5 rounded-2xl flex items-center gap-3 text-lg">
+          View My Projects
+          <i class="fas fa-arrow-right"></i>
         </a>
       </div>
     </div>
 
-    <div class="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce text-cyan-400">
+    <div class="absolute bottom-16 left-1/2 -translate-x-1/2 text-cyan-400/70 animate-bounce">
       <i class="fas fa-chevron-down text-3xl"></i>
     </div>
   </section>
 
   <!-- About -->
-  <section id="about" class="py-24 bg-black/70">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="section-title text-5xl font-bold mb-12 neon-text">About Me</h2>
-      <div class="text-lg leading-relaxed text-gray-300">
-        <p class="mb-6">
-          Hi, I'm Muhammad Sheheryar — a passionate full-stack developer based in Lahore.
+  <section id="about" class="py-28">
+    <div class="max-w-4xl mx-auto px-8">
+      <h2 class="section-title text-5xl font-semibold mb-12 neon-text">About Me</h2>
+      <div class="text-lg leading-relaxed text-gray-300 max-w-3xl">
+        <p class="mb-8">
+          Hello! I'm Muhammad Sheheryar, a passionate Full Stack Developer based in Lahore, Pakistan.
         </p>
         <p>
-          I specialize in building modern web applications using React, JavaScript, Python, and Node.js.
-          I enjoy turning ideas into clean, performant, and visually stunning digital experiences.
+          With expertise in Python, React, JavaScript, and modern web technologies,
+          I focus on creating clean, scalable, and user-friendly digital solutions.
+          I enjoy solving complex problems and turning ideas into elegant applications.
         </p>
       </div>
     </div>
   </section>
 
   <!-- Skills -->
-  <section id="skills" class="py-24 bg-[#0f0f0f]">
-    <div class="max-w-5xl mx-auto px-6">
-      <h2 class="section-title text-5xl font-bold mb-16 text-center neon-text">Skills</h2>
+  <section id="skills" class="py-28 bg-[#0f0f17]">
+    <div class="max-w-5xl mx-auto px-8">
+      <h2 class="section-title text-5xl font-semibold mb-16 text-center neon-text">Skills</h2>
 
-      <div class="grid md:grid-cols-2 gap-x-16 gap-y-12">
+      <div class="grid md:grid-cols-2 gap-x-20 gap-y-14">
         <div>
-          <div class="flex justify-between mb-2"><span class="font-medium">Python</span><span class="text-cyan-400">90%</span></div>
-          <div class="h-3 bg-zinc-800 rounded-full overflow-hidden neon-border"><div class="skill-bar w-[90%]"></div></div>
+          <div class="flex justify-between mb-3 text-sm font-medium">
+            <span>Python</span>
+            <span class="text-cyan-400">90%</span>
+          </div>
+          <div class="h-2.5 bg-zinc-800 rounded-full overflow-hidden neon-border">
+            <div class="skill-bar w-[90%]" style="--width: 90%;"></div>
+          </div>
         </div>
+
         <div>
-          <div class="flex justify-between mb-2"><span class="font-medium">React</span><span class="text-cyan-400">85%</span></div>
-          <div class="h-3 bg-zinc-800 rounded-full overflow-hidden neon-border"><div class="skill-bar w-[85%]"></div></div>
+          <div class="flex justify-between mb-3 text-sm font-medium">
+            <span>React</span>
+            <span class="text-cyan-400">85%</span>
+          </div>
+          <div class="h-2.5 bg-zinc-800 rounded-full overflow-hidden neon-border">
+            <div class="skill-bar w-[85%]" style="--width: 85%;"></div>
+          </div>
         </div>
+
         <div>
-          <div class="flex justify-between mb-2"><span class="font-medium">JavaScript</span><span class="text-cyan-400">88%</span></div>
-          <div class="h-3 bg-zinc-800 rounded-full overflow-hidden neon-border"><div class="skill-bar w-[88%]"></div></div>
+          <div class="flex justify-between mb-3 text-sm font-medium">
+            <span>JavaScript</span>
+            <span class="text-cyan-400">88%</span>
+          </div>
+          <div class="h-2.5 bg-zinc-800 rounded-full overflow-hidden neon-border">
+            <div class="skill-bar w-[88%]" style="--width: 88%;"></div>
+          </div>
         </div>
+
         <div>
-          <div class="flex justify-between mb-2"><span class="font-medium">Node.js</span><span class="text-cyan-400">80%</span></div>
-          <div class="h-3 bg-zinc-800 rounded-full overflow-hidden neon-border"><div class="skill-bar w-[80%]"></div></div>
+          <div class="flex justify-between mb-3 text-sm font-medium">
+            <span>Node.js</span>
+            <span class="text-cyan-400">80%</span>
+          </div>
+          <div class="h-2.5 bg-zinc-800 rounded-full overflow-hidden neon-border">
+            <div class="skill-bar w-[80%]" style="--width: 80%;"></div>
+          </div>
         </div>
+
         <div>
-          <div class="flex justify-between mb-2"><span class="font-medium">TypeScript</span><span class="text-cyan-400">75%</span></div>
-          <div class="h-3 bg-zinc-800 rounded-full overflow-hidden neon-border"><div class="skill-bar w-[75%]"></div></div>
+          <div class="flex justify-between mb-3 text-sm font-medium">
+            <span>TypeScript</span>
+            <span class="text-cyan-400">75%</span>
+          </div>
+          <div class="h-2.5 bg-zinc-800 rounded-full overflow-hidden neon-border">
+            <div class="skill-bar w-[75%]" style="--width: 75%;"></div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Projects -->
-  <section id="projects" class="py-24">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="section-title text-5xl font-bold mb-16 text-center neon-text">Featured Projects</h2>
+  <section id="projects" class="py-28">
+    <div class="max-w-6xl mx-auto px-8">
+      <h2 class="section-title text-5xl font-semibold mb-16 text-center neon-text">Featured Projects</h2>
 
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Project 1 -->
-        <div class="neon-border bg-zinc-950 p-8 rounded-3xl group hover:scale-105 transition-all">
-          <div class="h-52 bg-gradient-to-br from-cyan-500/10 to-purple-500/10 rounded-2xl mb-6 flex items-center justify-center text-6xl">🚀</div>
+      <div class="grid md:grid-cols-3 gap-10">
+        <div class="neon-border glass p-8 rounded-3xl group">
+          <div class="h-56 bg-gradient-to-br from-cyan-900/30 to-transparent rounded-2xl mb-8 flex items-center justify-center text-7xl opacity-75">
+            🚀
+          </div>
           <h3 class="text-2xl font-semibold mb-3">Project One</h3>
-          <p class="text-gray-400 mb-6">Modern web app built with React & Node.js featuring real-time updates.</p>
-          <a href="#" class="text-cyan-400 flex items-center gap-2 hover:gap-4 transition-all">View Project <i class="fas fa-external-link-alt"></i></a>
+          <p class="text-gray-400 mb-6 line-clamp-3">
+            A modern full-stack web application built with React and Node.js featuring real-time functionality.
+          </p>
+          <a href="#" class="text-cyan-300 hover:text-cyan-200 flex items-center gap-2 text-sm font-medium">
+            View Project <i class="fas fa-external-link-alt"></i>
+          </a>
         </div>
 
-        <!-- Project 2 -->
-        <div class="neon-border bg-zinc-950 p-8 rounded-3xl group hover:scale-105 transition-all">
-          <div class="h-52 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-2xl mb-6 flex items-center justify-center text-6xl">📊</div>
+        <div class="neon-border glass p-8 rounded-3xl group">
+          <div class="h-56 bg-gradient-to-br from-purple-900/30 to-transparent rounded-2xl mb-8 flex items-center justify-center text-7xl opacity-75">
+            📊
+          </div>
           <h3 class="text-2xl font-semibold mb-3">Project Two</h3>
-          <p class="text-gray-400 mb-6">Data visualization dashboard using Python and React.</p>
-          <a href="#" class="text-cyan-400 flex items-center gap-2 hover:gap-4 transition-all">View Project <i class="fas fa-external-link-alt"></i></a>
+          <p class="text-gray-400 mb-6 line-clamp-3">
+            Data analytics dashboard with interactive visualizations using Python and React.
+          </p>
+          <a href="#" class="text-cyan-300 hover:text-cyan-200 flex items-center gap-2 text-sm font-medium">
+            View Project <i class="fas fa-external-link-alt"></i>
+          </a>
         </div>
 
-        <!-- Project 3 -->
-        <div class="neon-border bg-zinc-950 p-8 rounded-3xl group hover:scale-105 transition-all">
-          <div class="h-52 bg-gradient-to-br from-emerald-500/10 to-cyan-500/10 rounded-2xl mb-6 flex items-center justify-center text-6xl">💻</div>
+        <div class="neon-border glass p-8 rounded-3xl group">
+          <div class="h-56 bg-gradient-to-br from-emerald-900/30 to-transparent rounded-2xl mb-8 flex items-center justify-center text-7xl opacity-75">
+            💼
+          </div>
           <h3 class="text-2xl font-semibold mb-3">Project Three</h3>
-          <p class="text-gray-400 mb-6">Full-stack e-commerce platform with TypeScript.</p>
-          <a href="#" class="text-cyan-400 flex items-center gap-2 hover:gap-4 transition-all">View Project <i class="fas fa-external-link-alt"></i></a>
+          <p class="text-gray-400 mb-6 line-clamp-3">
+            Scalable e-commerce platform built with TypeScript, React, and modern backend.
+          </p>
+          <a href="#" class="text-cyan-300 hover:text-cyan-200 flex items-center gap-2 text-sm font-medium">
+            View Project <i class="fas fa-external-link-alt"></i>
+          </a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="py-24 bg-black/80">
-    <div class="max-w-2xl mx-auto text-center px-6">
-      <h2 class="text-5xl font-bold mb-8 neon-text">Let's Connect</h2>
-      <p class="text-xl text-gray-300 mb-12">Interested in working together or just want to say hi?</p>
+  <section id="contact" class="py-28 bg-[#0a0a0f]">
+    <div class="max-w-2xl mx-auto text-center px-8">
+      <h2 class="text-5xl font-semibold mb-8 neon-text">Let's Connect</h2>
+      <p class="text-xl text-gray-400 mb-12">
+        I'm always open to discussing new opportunities, interesting projects, or just having a chat.
+      </p>
 
-      <div class="flex flex-wrap justify-center gap-6">
+      <div class="flex flex-wrap justify-center gap-8">
         <a href="https://www.linkedin.com/in/muhammadsheheryar21" target="_blank"
-           class="neon-border px-10 py-6 rounded-3xl flex items-center gap-4 text-xl hover:bg-cyan-950/60">
-          <i class="fab fa-linkedin text-2xl"></i> LinkedIn
+           class="neon-border glass px-12 py-7 rounded-3xl flex items-center gap-4 text-xl hover:scale-105 transition-all">
+          <i class="fab fa-linkedin text-3xl"></i>
+          <span>LinkedIn</span>
         </a>
-        <a href="mailto:your-email@example.com"
-           class="neon-border px-10 py-6 rounded-3xl flex items-center gap-4 text-xl hover:bg-purple-950/60">
-          <i class="fas fa-envelope text-2xl"></i> Email Me
+
+        <a href="mailto:your.email@example.com"
+           class="neon-border glass px-12 py-7 rounded-3xl flex items-center gap-4 text-xl hover:scale-105 transition-all">
+          <i class="fas fa-envelope text-3xl"></i>
+          <span>Email Me</span>
         </a>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="py-10 text-center text-gray-500 border-t border-cyan-900/30">
-    <p>© 2026 Muhammad Sheheryar • Built with neon energy ⚡</p>
+  <footer class="py-12 text-center text-gray-500 text-sm border-t border-cyan-900/20">
+    <p>© 2026 Muhammad Sheheryar • Crafted with passion in Lahore</p>
   </footer>
 
   <script>
-    // Smooth scrolling
+    // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         if (this.getAttribute('href') !== '#') {
           e.preventDefault();
           const target = document.querySelector(this.getAttribute('href'));
           if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
           }
         }
       });
-    });
-
-    // Optional: Add a subtle scroll progress indicator (neon line)
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrollPercent = scrollTop / docHeight * 100;
-
-      // You can use this value if you want to add a progress bar later
     });
   </script>
 </body>
