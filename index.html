@@ -5,19 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Muhammad Sheheryar | Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
+:root {
+  --bg:#0f172a;
+  --card:#111827;
+  --accent:#3b82f6;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+}
+
 * {
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
+  font-family:'Inter',sans-serif;
 }
 
 body {
-  background: #0b1120;
-  color:#fff;
+  background:var(--bg);
+  color:var(--text);
 }
 
 /* NAV */
@@ -27,18 +35,19 @@ nav {
   top:0;
   display:flex;
   justify-content:space-between;
-  padding:15px 60px;
-  background:rgba(0,0,0,0.5);
+  padding:16px 80px;
+  background:rgba(15,23,42,0.7);
   backdrop-filter: blur(10px);
 }
 
-nav h2 { color:#7c3aed; }
 nav a {
-  color:#ddd;
+  color:var(--muted);
   margin-left:20px;
   text-decoration:none;
+  font-size:14px;
 }
-nav a:hover { color:#38bdf8; }
+
+nav a:hover { color:var(--text); }
 
 /* HERO */
 .hero {
@@ -46,288 +55,275 @@ nav a:hover { color:#38bdf8; }
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:0 60px;
+  padding:0 80px;
 }
 
 .hero-text h1 {
-  font-size:50px;
+  font-size:44px;
+  font-weight:600;
 }
 
-.hero-text span { color:#7c3aed; }
-
-.typing { color:#38bdf8; margin-top:10px; }
-
 .hero-text p {
-  margin:15px 0;
-  color:#cbd5f5;
-  max-width:400px;
+  margin:12px 0;
+  color:var(--muted);
+  max-width:420px;
 }
 
 .btn {
-  padding:12px 25px;
-  background:linear-gradient(45deg,#7c3aed,#38bdf8);
-  border:none;
-  border-radius:8px;
-  color:#fff;
+  padding:10px 18px;
+  border-radius:6px;
+  background:var(--accent);
+  color:white;
   text-decoration:none;
-  display:inline-block;
+  font-size:14px;
 }
 
+/* IMAGE */
 .profile {
-  width:260px;
-  height:260px;
+  width:240px;
+  height:240px;
   border-radius:50%;
   overflow:hidden;
-  border:4px solid #7c3aed;
-  box-shadow:0 0 40px #7c3aed;
-  animation:float 3s infinite;
+  position:relative;
+  transition:0.4s;
 }
+
 .profile img {
   width:100%;
   height:100%;
   object-fit:cover;
+  transition:0.4s;
 }
 
-@keyframes float {
-  0%{transform:translateY(0)}
-  50%{transform:translateY(-15px)}
-  100%{transform:translateY(0)}
+.profile:hover img {
+  transform:scale(1.08);
+}
+
+.profile::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:50%;
+  border:2px solid var(--accent);
+  opacity:0.6;
 }
 
 /* SECTION */
-section { padding:70px 60px; }
+section {
+  padding:60px 80px;
+}
 
-h2 { text-align:center; margin-bottom:30px; }
+h2 {
+  font-size:22px;
+  margin-bottom:20px;
+}
+
+/* ABOUT */
+.about {
+  max-width:700px;
+}
 
 /* GRID */
 .grid {
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:18px;
 }
 
 /* CARD */
 .card {
-  background:rgba(255,255,255,0.05);
-  padding:20px;
-  border-radius:15px;
-  transition:0.4s;
-  opacity:0;
-  transform:translateY(40px);
+  background:var(--card);
+  padding:18px;
+  border-radius:10px;
+  transition:0.3s;
+  border:1px solid rgba(255,255,255,0.04);
 }
-.card.show {
-  opacity:1;
-  transform:translateY(0);
-}
+
 .card:hover {
-  transform:translateY(-10px);
-  background:rgba(255,255,255,0.1);
-}
-
-/* SKILLS */
-.skill {
-  margin-bottom:15px;
-}
-.bar {
-  height:8px;
-  background:#222;
-  border-radius:10px;
-}
-.progress {
-  height:8px;
-  background:linear-gradient(45deg,#7c3aed,#38bdf8);
-  border-radius:10px;
-  width:0;
-}
-
-/* TESTIMONIAL */
-.testimonial {
-  background:rgba(255,255,255,0.05);
-  padding:20px;
-  border-radius:15px;
+  transform:translateY(-5px);
 }
 
 /* CONTACT */
+.contact {
+  max-width:480px;
+}
+
 .contact input,
 .contact textarea {
   width:100%;
-  padding:12px;
+  padding:10px;
   margin-bottom:10px;
-  border:none;
-  border-radius:8px;
+  border-radius:6px;
+  border:1px solid #1f2937;
+  background:#020617;
+  color:white;
+  font-size:13px;
 }
+
+.contact textarea {
+  height:90px;
+  resize:none;
+}
+
 .contact button {
   width:100%;
-  padding:12px;
+  padding:10px;
   border:none;
-  background:linear-gradient(45deg,#7c3aed,#38bdf8);
-  color:#fff;
-  border-radius:8px;
+  background:var(--accent);
+  color:white;
+  border-radius:6px;
 }
 
 /* FOOTER */
 footer {
-  text-align:center;
-  padding:20px;
   background:#020617;
+  padding:40px 80px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+}
+
+footer h4 {
+  margin-bottom:10px;
+  font-size:14px;
+}
+
+footer a {
+  display:block;
+  color:var(--muted);
+  font-size:13px;
+  margin-bottom:6px;
+  text-decoration:none;
+}
+
+footer a:hover {
+  color:white;
+}
+
+/* ANIMATION */
+.fade {
+  opacity:0;
+  transform:translateY(20px);
+  transition:0.6s;
+}
+.show {
+  opacity:1;
+  transform:translateY(0);
 }
 
 /* RESPONSIVE */
 @media(max-width:768px){
-  .hero { flex-direction:column; text-align:center; }
+  nav,section,.hero,footer {
+    padding:20px;
+  }
+  .hero {
+    flex-direction:column;
+    text-align:center;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
 <nav>
-  <h2>Sheheryar</h2>
+  <div>Sheheryar</div>
   <div>
     <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
+    <a href="#projects">Work</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
-  <div class="hero-text">
-    <h1>Hi, I'm <span>Muhammad Sheheryar</span></h1>
-    <div class="typing"></div>
-    <p>I build high-converting websites for businesses and help them grow online.</p>
-    <a href="#contact" class="btn">Hire Me</a>
+  <div class="hero-text fade">
+    <h1>Muhammad Sheheryar</h1>
+    <p>I design and build modern websites that help businesses attract clients and grow online presence.</p>
+    <a href="#contact" class="btn">Contact Me</a>
   </div>
 
-  <div class="profile">
+  <div class="profile fade">
     <img src="https://via.placeholder.com/300">
   </div>
 </div>
 
-<!-- ABOUT -->
 <section id="about">
-  <h2>About Me</h2>
-  <p style="text-align:center;max-width:600px;margin:auto;">
-    Frontend developer specializing in React. I create modern, responsive and client-focused websites.
-  </p>
+  <div class="about fade">
+    <h2>About</h2>
+    <p>
+      I am a frontend developer focused on building clean, high-performing websites.
+      My work is not just about design — it’s about creating digital experiences that convert visitors into customers.
+    </p>
+  </div>
 </section>
 
-<!-- SKILLS -->
-<section id="skills">
-  <h2>Skills</h2>
-
-  <div class="skill">
-    <p>HTML / CSS</p>
-    <div class="bar"><div class="progress" data-width="90%"></div></div>
-  </div>
-
-  <div class="skill">
-    <p>JavaScript</p>
-    <div class="bar"><div class="progress" data-width="85%"></div></div>
-  </div>
-
-  <div class="skill">
-    <p>React</p>
-    <div class="bar"><div class="progress" data-width="80%"></div></div>
-  </div>
-
-</section>
-
-<!-- PROJECTS -->
 <section id="projects">
-  <h2>Projects</h2>
-
+  <h2 class="fade">Selected Work</h2>
   <div class="grid">
-    <div class="card">
+    <div class="card fade">
       <h3>Business Website</h3>
-      <p>Modern UI for clients</p>
-      <a class="btn">Live Demo</a>
+      <p>Professional website for service-based clients.</p>
     </div>
 
-    <div class="card">
+    <div class="card fade">
       <h3>E-commerce UI</h3>
-      <p>Clean shopping design</p>
-      <a class="btn">Live Demo</a>
+      <p>Modern product-focused UI design.</p>
     </div>
 
-    <div class="card">
-      <h3>Portfolio</h3>
-      <p>Personal branding</p>
-      <a class="btn">Live Demo</a>
+    <div class="card fade">
+      <h3>Portfolio Design</h3>
+      <p>Clean personal branding website.</p>
     </div>
-  </div>
-
-</section>
-
-<!-- TESTIMONIAL -->
-<section>
-  <h2>Testimonials</h2>
-
-  <div class="grid">
-    <div class="testimonial">"Great developer, highly recommended!"</div>
-    <div class="testimonial">"Professional work and fast delivery."</div>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
-  <h2>Contact</h2>
+  <h2 class="fade">Contact</h2>
 
-  <div class="contact">
-    <form action="https://formspree.io/f/mwkgnlqn" method="POST">
-      <input type="text" placeholder="Name" required>
-      <input type="email" placeholder="Email" required>
-      <textarea rows="5" placeholder="Message"></textarea>
+  <div class="contact fade">
+    <form>
+      <input type="text" placeholder="Name">
+      <input type="email" placeholder="Email">
+      <textarea placeholder="Message"></textarea>
       <button>Send Message</button>
     </form>
 
-    <p style="text-align:center;margin-top:10px;">
-      muhammadsheheryar78@gmail.com <br>
-      +923054511814
+    <p style="margin-top:10px;font-size:13px;color:#9ca3af;">
+      muhammadsheheryar78@gmail.com • +923054511814
     </p>
   </div>
 </section>
 
 <footer>
-  <p>© 2026 Muhammad Sheheryar</p>
+  <div>
+    <h4>About</h4>
+    <p style="font-size:13px;color:#9ca3af;">
+      Frontend developer building modern web experiences.
+    </p>
+  </div>
+
+  <div>
+    <h4>Links</h4>
+    <a href="#about">About</a>
+    <a href="#projects">Work</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <div>
+    <h4>Social</h4>
+    <a href="https://www.linkedin.com/in/muhammadsheheryar21" target="_blank">LinkedIn</a>
+  </div>
 </footer>
 
 <script>
-// typing
-const text=["Frontend Developer","React Developer","Freelancer"];
-let i=0,j=0,cur="",del=false;
+// SCROLL ANIMATION
+const items = document.querySelectorAll('.fade');
 
-function type(){
-  cur=text[i];
-  j=del?j-1:j+1;
-  document.querySelector(".typing").innerText=cur.substring(0,j);
-
-  if(!del && j==cur.length){del=true;setTimeout(type,1000);return;}
-  if(del && j==0){del=false;i=(i+1)%text.length;}
-  setTimeout(type,del?50:100);
-}
-type();
-
-// scroll animation
-const cards=document.querySelectorAll('.card');
-window.addEventListener('scroll',()=>{
-  const trigger=window.innerHeight*0.85;
-  cards.forEach(card=>{
-    if(card.getBoundingClientRect().top<trigger){
-      card.classList.add('show');
-    }
-  });
-});
-
-// skill animation
-const bars=document.querySelectorAll('.progress');
-window.addEventListener('scroll',()=>{
-  bars.forEach(bar=>{
-    const top=bar.getBoundingClientRect().top;
-    if(top<window.innerHeight){
-      bar.style.width=bar.getAttribute('data-width');
+window.addEventListener('scroll', ()=>{
+  items.forEach(el=>{
+    const top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight - 50){
+      el.classList.add('show');
     }
   });
 });
