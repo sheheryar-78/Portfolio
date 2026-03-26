@@ -1,333 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Muhammad Sheheryar | Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Muhammad Sheheryar | Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-<style>
-:root {
-  --bg:#0f172a;
-  --card:#111827;
-  --accent:#3b82f6;
-  --text:#e5e7eb;
-  --muted:#9ca3af;
-}
-
-* {
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Inter',sans-serif;
-}
-
-body {
-  background:var(--bg);
-  color:var(--text);
-}
-
-/* NAV */
-nav {
-  position:fixed;
-  width:100%;
-  top:0;
-  display:flex;
-  justify-content:space-between;
-  padding:16px 80px;
-  background:rgba(15,23,42,0.7);
-  backdrop-filter: blur(10px);
-}
-
-nav a {
-  color:var(--muted);
-  margin-left:20px;
-  text-decoration:none;
-  font-size:14px;
-}
-
-nav a:hover { color:var(--text); }
-
-/* HERO */
-.hero {
-  height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 80px;
-}
-
-.hero-text h1 {
-  font-size:44px;
-  font-weight:600;
-}
-
-.hero-text p {
-  margin:12px 0;
-  color:var(--muted);
-  max-width:420px;
-}
-
-.btn {
-  padding:10px 18px;
-  border-radius:6px;
-  background:var(--accent);
-  color:white;
-  text-decoration:none;
-  font-size:14px;
-}
-
-/* IMAGE */
-.profile {
-  width:240px;
-  height:240px;
-  border-radius:50%;
-  overflow:hidden;
-  position:relative;
-  transition:0.4s;
-}
-
-.profile img {
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:0.4s;
-}
-
-.profile:hover img {
-  transform:scale(1.08);
-}
-
-.profile::after {
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:50%;
-  border:2px solid var(--accent);
-  opacity:0.6;
-}
-
-/* SECTION */
-section {
-  padding:60px 80px;
-}
-
-h2 {
-  font-size:22px;
-  margin-bottom:20px;
-}
-
-/* ABOUT */
-.about {
-  max-width:700px;
-}
-
-/* GRID */
-.grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:18px;
-}
-
-/* CARD */
-.card {
-  background:var(--card);
-  padding:18px;
-  border-radius:10px;
-  transition:0.3s;
-  border:1px solid rgba(255,255,255,0.04);
-}
-
-.card:hover {
-  transform:translateY(-5px);
-}
-
-/* CONTACT */
-.contact {
-  max-width:480px;
-}
-
-.contact input,
-.contact textarea {
-  width:100%;
-  padding:10px;
-  margin-bottom:10px;
-  border-radius:6px;
-  border:1px solid #1f2937;
-  background:#020617;
-  color:white;
-  font-size:13px;
-}
-
-.contact textarea {
-  height:90px;
-  resize:none;
-}
-
-.contact button {
-  width:100%;
-  padding:10px;
-  border:none;
-  background:var(--accent);
-  color:white;
-  border-radius:6px;
-}
-
-/* FOOTER */
-footer {
-  background:#020617;
-  padding:40px 80px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:20px;
-}
-
-footer h4 {
-  margin-bottom:10px;
-  font-size:14px;
-}
-
-footer a {
-  display:block;
-  color:var(--muted);
-  font-size:13px;
-  margin-bottom:6px;
-  text-decoration:none;
-}
-
-footer a:hover {
-  color:white;
-}
-
-/* ANIMATION */
-.fade {
-  opacity:0;
-  transform:translateY(20px);
-  transition:0.6s;
-}
-.show {
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-  nav,section,.hero,footer {
-    padding:20px;
-  }
-  .hero {
-    flex-direction:column;
-    text-align:center;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<nav>
-  <div>Sheheryar</div>
-  <div>
-    <a href="#about">About</a>
-    <a href="#projects">Work</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
-
-<div class="hero">
-  <div class="hero-text fade">
-    <h1>Muhammad Sheheryar</h1>
-    <p>I design and build modern websites that help businesses attract clients and grow online presence.</p>
-    <a href="#contact" class="btn">Contact Me</a>
-  </div>
-
-  <div class="profile fade">
-    <img src="https://via.placeholder.com/300">
-  </div>
-</div>
-
-<section id="about">
-  <div class="about fade">
-    <h2>About</h2>
-    <p>
-      I am a frontend developer focused on building clean, high-performing websites.
-      My work is not just about design — it’s about creating digital experiences that convert visitors into customers.
-    </p>
-  </div>
-</section>
-
-<section id="projects">
-  <h2 class="fade">Selected Work</h2>
-  <div class="grid">
-    <div class="card fade">
-      <h3>Business Website</h3>
-      <p>Professional website for service-based clients.</p>
-    </div>
-
-    <div class="card fade">
-      <h3>E-commerce UI</h3>
-      <p>Modern product-focused UI design.</p>
-    </div>
-
-    <div class="card fade">
-      <h3>Portfolio Design</h3>
-      <p>Clean personal branding website.</p>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <h2 class="fade">Contact</h2>
-
-  <div class="contact fade">
-    <form>
-      <input type="text" placeholder="Name">
-      <input type="email" placeholder="Email">
-      <textarea placeholder="Message"></textarea>
-      <button>Send Message</button>
-    </form>
-
-    <p style="margin-top:10px;font-size:13px;color:#9ca3af;">
-      muhammadsheheryar78@gmail.com • +923054511814
-    </p>
-  </div>
-</section>
-
-<footer>
-  <div>
-    <h4>About</h4>
-    <p style="font-size:13px;color:#9ca3af;">
-      Frontend developer building modern web experiences.
-    </p>
-  </div>
-
-  <div>
-    <h4>Links</h4>
-    <a href="#about">About</a>
-    <a href="#projects">Work</a>
-    <a href="#contact">Contact</a>
-  </div>
-
-  <div>
-    <h4>Social</h4>
-    <a href="https://www.linkedin.com/in/muhammadsheheryar21" target="_blank">LinkedIn</a>
-  </div>
-</footer>
-
-<script>
-// SCROLL ANIMATION
-const items = document.querySelectorAll('.fade');
-
-window.addEventListener('scroll', ()=>{
-  items.forEach(el=>{
-    const top = el.getBoundingClientRect().top;
-    if(top < window.innerHeight - 50){
-      el.classList.add('show');
+    body {
+      font-family: 'Inter', system_ui, sans-serif;
+      background: #0a0a0a;
+      color: #e0e0e0;
     }
-  });
-});
-</script>
 
+    .neon-text {
+      text-shadow:
+        0 0 5px #67e8f9,
+        0 0 10px #67e8f9,
+        0 0 20px #22d3ee,
+        0 0 40px #06b6d4;
+      animation: neon-flicker 1.5s infinite alternate;
+    }
+
+    @keyframes neon-flicker {
+      0% { text-shadow: 0 0 5px #67e8f9, 0 0 10px #67e8f9, 0 0 20px #22d3ee; }
+      100% { text-shadow: 0 0 10px #67e8f9, 0 0 20px #22d3ee, 0 0 40px #06b6d4, 0 0 60px #06b6d4; }
+    }
+
+    .neon-border {
+      box-shadow: 0 0 10px #22d3ee, 0 0 20px #22d3ee;
+      transition: all 0.4s ease;
+    }
+
+    .neon-border:hover {
+      box-shadow: 0 0 20px #67e8f9, 0 0 40px #22d3ee, 0 0 60px #06b6d4;
+      transform: translateY(-4px);
+    }
+
+    .skill-bar {
+      height: 10px;
+      background: linear-gradient(90deg, #22d3ee, #a855f7);
+      box-shadow: 0 0 15px #22d3ee;
+      animation: skill-fill 2s ease-in-out forwards;
+    }
+
+    .section-title {
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60%;
+      height: 3px;
+      background: linear-gradient(to right, #22d3ee, transparent);
+    }
+  </style>
+</head>
+<body class="min-h-screen overflow-x-hidden">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 w-full bg-black/90 backdrop-blur-md border-b border-cyan-500/30 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
+      <h1 class="text-2xl font-black tracking-widest neon-text text-cyan-400">SHEHERYAR</h1>
+      <div class="flex gap-8 text-sm font-medium">
+        <a href="#home" class="hover:text-cyan-400 transition-colors">Home</a>
+        <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
+        <a href="#skills" class="hover:text-cyan-400 transition-colors">Skills</a>
+        <a href="#projects" class="hover:text-cyan-400 transition-colors">Projects</a>
+        <a href="#contact" class="hover:text-cyan-400 transition-colors">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="home" class="min-h-screen flex items-center justify-center relative">
+    <div class="absolute inset-0 bg-[radial-gradient(circle,#22d3ee_1px,transparent_1px)] bg-[length:40px_40px] opacity-10"></div>
+
+    <div class="text-center z-10 px-6">
+      <h2 class="text-7xl md:text-8xl font-black tracking-tighter neon-text mb-4">MUHAMMAD</h2>
+      <h2 class="text-7xl md:text-8xl font-black tracking-tighter neon-text text-cyan-300">SHEHERYAR</h2>
+      <p class="text-3xl mt-6 text-cyan-300">Full Stack Developer</p>
+      <p class="max-w-lg mx-auto mt-8 text-gray-400 text-lg">
+        Crafting beautiful, high-performance web experiences with modern technologies and neon aesthetics.
+      </p>
+
+      <div class="flex flex-wrap gap-6 justify-center mt-12">
+        <a href="https://www.linkedin.com/in/muhammadsheheryar21"
+           target="_blank"
+           class="neon-border px-10 py-5 rounded-2xl flex items-center gap-3 text-lg hover:bg-cyan-950/50">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <a href="#projects"
+           class="neon-border px-10 py-5 rounded-2xl flex items-center gap-3 text-lg hover:bg-purple-950/50">
+          View My Work <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce text-cyan-400">
+      <i class="fas fa-chevron-down text-3xl"></i>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-24 bg-black/70">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="section-title text-5xl font-bold mb-12 neon-text">About Me</h2>
+      <div class="text-lg leading-relaxed text-gray-300">
+        <p class="mb-6">
+          Hi, I'm Muhammad Sheheryar — a passionate full-stack developer based in Lahore.
+        </p>
+        <p>
+          I specialize in building modern web applications using React, JavaScript, Python, and Node.js.
+          I enjoy turning ideas into clean, performant, and visually stunning digital experiences.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="py-24 bg-[#0f0f0f]">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="section-title text-5xl font-bold mb-16 text-center neon-text">Skills</h2>
+
+      <div class="grid md:grid-cols-2 gap-x-16 gap-y-12">
+        <div>
+          <div class="flex justify-between mb-2"><span class="font-medium">Python</span><span class="text-cyan-400">90%</span></div>
+          <div class="h-3 bg-zinc-800 rounded-full overflow-hidden neon-border"><div class="skill-bar w-[90%]"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between mb-2"><span class="font-medium">React</span><span class="text-cyan-400">85%</span></div>
+          <div class="h-3 bg-zinc-800 rounded-full overflow-hidden neon-border"><div class="skill-bar w-[85%]"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between mb-2"><span class="font-medium">JavaScript</span><span class="text-cyan-400">88%</span></div>
+          <div class="h-3 bg-zinc-800 rounded-full overflow-hidden neon-border"><div class="skill-bar w-[88%]"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between mb-2"><span class="font-medium">Node.js</span><span class="text-cyan-400">80%</span></div>
+          <div class="h-3 bg-zinc-800 rounded-full overflow-hidden neon-border"><div class="skill-bar w-[80%]"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between mb-2"><span class="font-medium">TypeScript</span><span class="text-cyan-400">75%</span></div>
+          <div class="h-3 bg-zinc-800 rounded-full overflow-hidden neon-border"><div class="skill-bar w-[75%]"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="section-title text-5xl font-bold mb-16 text-center neon-text">Featured Projects</h2>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Project 1 -->
+        <div class="neon-border bg-zinc-950 p-8 rounded-3xl group hover:scale-105 transition-all">
+          <div class="h-52 bg-gradient-to-br from-cyan-500/10 to-purple-500/10 rounded-2xl mb-6 flex items-center justify-center text-6xl">🚀</div>
+          <h3 class="text-2xl font-semibold mb-3">Project One</h3>
+          <p class="text-gray-400 mb-6">Modern web app built with React & Node.js featuring real-time updates.</p>
+          <a href="#" class="text-cyan-400 flex items-center gap-2 hover:gap-4 transition-all">View Project <i class="fas fa-external-link-alt"></i></a>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="neon-border bg-zinc-950 p-8 rounded-3xl group hover:scale-105 transition-all">
+          <div class="h-52 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-2xl mb-6 flex items-center justify-center text-6xl">📊</div>
+          <h3 class="text-2xl font-semibold mb-3">Project Two</h3>
+          <p class="text-gray-400 mb-6">Data visualization dashboard using Python and React.</p>
+          <a href="#" class="text-cyan-400 flex items-center gap-2 hover:gap-4 transition-all">View Project <i class="fas fa-external-link-alt"></i></a>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="neon-border bg-zinc-950 p-8 rounded-3xl group hover:scale-105 transition-all">
+          <div class="h-52 bg-gradient-to-br from-emerald-500/10 to-cyan-500/10 rounded-2xl mb-6 flex items-center justify-center text-6xl">💻</div>
+          <h3 class="text-2xl font-semibold mb-3">Project Three</h3>
+          <p class="text-gray-400 mb-6">Full-stack e-commerce platform with TypeScript.</p>
+          <a href="#" class="text-cyan-400 flex items-center gap-2 hover:gap-4 transition-all">View Project <i class="fas fa-external-link-alt"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-24 bg-black/80">
+    <div class="max-w-2xl mx-auto text-center px-6">
+      <h2 class="text-5xl font-bold mb-8 neon-text">Let's Connect</h2>
+      <p class="text-xl text-gray-300 mb-12">Interested in working together or just want to say hi?</p>
+
+      <div class="flex flex-wrap justify-center gap-6">
+        <a href="https://www.linkedin.com/in/muhammadsheheryar21" target="_blank"
+           class="neon-border px-10 py-6 rounded-3xl flex items-center gap-4 text-xl hover:bg-cyan-950/60">
+          <i class="fab fa-linkedin text-2xl"></i> LinkedIn
+        </a>
+        <a href="mailto:your-email@example.com"
+           class="neon-border px-10 py-6 rounded-3xl flex items-center gap-4 text-xl hover:bg-purple-950/60">
+          <i class="fas fa-envelope text-2xl"></i> Email Me
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10 text-center text-gray-500 border-t border-cyan-900/30">
+    <p>© 2026 Muhammad Sheheryar • Built with neon energy ⚡</p>
+  </footer>
+
+  <script>
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        if (this.getAttribute('href') !== '#') {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+    });
+
+    // Optional: Add a subtle scroll progress indicator (neon line)
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollPercent = scrollTop / docHeight * 100;
+
+      // You can use this value if you want to add a progress bar later
+    });
+  </script>
 </body>
 </html>
